@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <style>body {background-image: url('http://i.imgur.com/tDtge.png');background-attachment: fixed;background-repeat: repeat;}</style>
+
+    
+    
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Short+Stack&display=swap" rel="stylesheet">
+    <link rel="icon" href="http://3.bp.blogspot.com/-j9Z8DJvlAGo/TxoUuMOyB3I/AAAAAAAACbA/8ebHEAe0ZKE/s1600/foods+%252C+fruits+and+flowers+cute+icon+by+miraahussin.blogspot+%25281%2529.png" />
+    <title> Aℓia Sab </title>
+    <link rel="stylesheet" href="index.css">
+
+    <div style=" background-image: url('https://3.bp.blogspot.com/-8rUwdqZv4zI/UFSOLGXW_SI/AAAAAAAAFyU/47ar4IsfRHA/s1600/divider7.gif'); top: 0px;  width: 100%; left:0px; height: 44px; z-index: 100; position: fixed "></div>
+
+<br>
+
+
+
+
+</head>
+
+
+<script>
+
+    //Here you can add your own picture for snow. Just change the url
+    var snowsrc="http://1.bp.blogspot.com/-ZhjqZu_ozj8/TjzOYWxIyWI/AAAAAAAABhY/cBGblpOBl9k/s1600/whiteshowNF.png"
+    //how many snowflakes there will be (currently 12)
+    var no =200;
+    //How fast will the snow disappear (0 is never)
+    var hidesnowtime = 0;
+    //The height the snow will reach before it disappears ("windowheight" or "pageheight")
+    var snowdistance = "windowheight";
+    ///////////////////////////////End of Settings///////////////////////////////////
+    var ie4up = (document.all) ? 1 : 0;
+    var ns6up = (document.getElementById&&!document.all) ? 1 : 0;
+
+    function iecompattest()
+    {
+    return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+    }
+
+    var dx, xp, yp;
+    var am, stx, sty;
+    var i, doc_width = 800, doc_height = 600;
+
+    if (ns6up)
+    {
+    doc_width = self.innerWidth;
+    doc_height = self.innerHeight;
+    }
+    else
+    if (ie4up)
+    {
+    doc_width = document.body.clientWidth;
+    doc_height = document.body.clientHeight;
+    }
+
+    dx = new Array();
+    xp = new Array();
+    yp = new Array();
+    am = new Array();
+    stx = new Array();
+    sty = new Array();
+
+    for (i = 0; i < no; ++ i)
+    {
+    dx[i] = 0;
+    xp[i] = Math.random()*(doc_width-50);
+    yp[i] = Math.random()*doc_height;
+    am[i] = Math.random()*20;
+    stx[i] = 0.02 + Math.random()/10;
+    sty[i] = 0.7 + Math.random();
+    if (ie4up||ns6up)
+    {
+    if (i == 0)
+    {
+    document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><a href=\"http://rftactical.darkbb.com/index.htm\"><img src='"+snowsrc+"' border=\"0\"><\/a><\/div>");
+    }
+    else
+    {
+    document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=\"0\"><\/div>");
+    }
+    }
+    }
+
+    function snowIE_NS6()
+    {
+    doc_width = ns6up?window.innerWidth-10 : iecompattest().clientWidth-10;
+    doc_height=(window.innerHeight && snowdistance=="windowheight")? window.innerHeight : (ie4up && snowdistance=="windowheight")? iecompattest().clientHeight : (ie4up && !window.opera && snowdistance=="pageheight")? iecompattest().scrollHeight : iecompattest().offsetHeight;
+    for (i = 0; i < no; ++ i)
+    {
+    yp[i] += sty[i];
+    if (yp[i] > doc_height-50)
+    {
+    xp[i] = Math.random()*(doc_width-am[i]-30);
+    yp[i] = 0;
+    stx[i] = 0.02 + Math.random()/10;
+    sty[i] = 0.7 + Math.random();
+    }
+    dx[i] += stx[i];
+    document.getElementById("dot"+i).style.top=yp[i]+"px";
+    document.getElementById("dot"+i).style.left=xp[i] + am[i]*Math.sin(dx[i])+"px";
+    }
+    snowtimer=setTimeout("snowIE_NS6()", 10);
+    }
+
+    function hidesnow()
+    {
+    if (window.snowtimer) clearTimeout(snowtimer)
+    for (i=0; i<no; i++) document.getElementById("dot"+i).style.visibility="hidden"
+    }
+
+
+    if (ie4up||ns6up)
+    {
+    snowIE_NS6();
+    if (hidesnowtime>0)
+    setTimeout("hidesnow()", hidesnowtime*1000)
+    }
+    </script>  
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script><script type="text/javascript" >/***********************************************
+    * Scroll To Top Control script- &#169; Dynamic Drive DHTML code library(www.dynamicdrive.com)* Modified byLyssaFaizureen***********************************************/var scrolltotop={
+    setting: {startline:100, scrollto: 0, scrollduration:1000, fadeduration:[500, 100]},
+    controlHTML: '<img src="http://i.imgur.com/LuJhP.gif"/>',
+    controlattrs: {offsetx:5, offsety:5},
+    anchorkeyword: '#top',
+    state: {isvisible:false, shouldvisible:false},
+    scrollup:function(){
+    if (!this.cssfixedsupport)
+    this.$control.css({opacity:0})
+    var dest=isNaN(this.setting.scrollto)? this.setting.scrollto : parseInt(this.setting.scrollto)
+    if (typeof dest=="string" && jQuery('#'+dest).length==1)
+    dest=jQuery('#'+dest).offset().top
+    else
+    dest=0
+    this.$body.animate({scrollTop: dest}, this.setting.scrollduration);
+    },
+    keepfixed:function(){
+    var $window=jQuery(window)
+    var controlx=$window.scrollLeft() + $window.width() - this.$control.width() - this.controlattrs.offsetx
+    var controly=$window.scrollTop() + $window.height() - this.$control.height() - this.controlattrs.offsety
+    this.$control.css({left:controlx+'px', top:controly+'px'})
+    },
+    togglecontrol:function(){
+    var scrolltop=jQuery(window).scrollTop()
+    if (!this.cssfixedsupport)
+    this.keepfixed()
+    this.state.shouldvisible=(scrolltop>=this.setting.startline)? true : false
+    if (this.state.shouldvisible && !this.state.isvisible){
+    this.$control.stop().animate({opacity:1}, this.setting.fadeduration[0])
+    this.state.isvisible=true
+    }
+    else if (this.state.shouldvisible==false && this.state.isvisible){
+    this.$control.stop().animate({opacity:0}, this.setting.fadeduration[1])
+    this.state.isvisible=false
+    }
+    },
+    init:function(){
+    jQuery(document).ready(function($){
+    var mainobj=scrolltotop
+    var iebrws=document.all
+    mainobj.cssfixedsupport=!iebrws || iebrws && document.compatMode=="CSS1Compat" && window.XMLHttpRequest
+    mainobj.$body=(window.opera)? (document.compatMode=="CSS1Compat"? $('html') : $('body')) : $('html,body')
+    mainobj.$control=$('<div id="topcontrol">'+mainobj.controlHTML+'</div>')
+    .css({position:mainobj.cssfixedsupport? 'fixed' : 'absolute', bottom:mainobj.controlattrs.offsety, right:mainobj.controlattrs.offsetx, opacity:0, cursor:'pointer'})
+    .attr({title:'Scroll Back to Top'})
+    .click(function(){mainobj.scrollup(); return false})
+    .appendTo('body')
+    if (document.all && !window.XMLHttpRequest && mainobj.$control.text()!='')
+    mainobj.$control.css({width:mainobj.$control.width()})
+    mainobj.togglecontrol()
+    $('a[href="' + mainobj.anchorkeyword +'"]').click(function(){
+    mainobj.scrollup()
+    return false
+    })
+    $(window).bind('scroll resize', function(e){
+    mainobj.togglecontrol()
+    })
+    })
+    }
+    }
+    scrolltotop.init()
+    </script>
+
+<body>
+    
+    
+    <center><img src="images/header friends.png" width="800" height="450"></center>
+    <div class="hero">
+        <nav>
+            <div style="border-top: 2px solid #fff2d4; margin-top: 1em; padding-top: 1em;">
+        
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about me.html">ABOUT ME</a></li>
+                <li><a href="education.html">EDUCATION</a></li>
+                <li><a href="personal interest.html">MY INTEREST</a></li>
+                <li><a href="family.html">FAMILY</a></li>
+                <li><a href="friend.html">FRIEND</a></li>
+                <li><a href="food.html">FOOD</a></li>
+                <li><a href="facts.html">FACTS</a></li>  
+            </ul>
+    
+            <div style="border-bottom: 2px solid #fff2d4; margin-top: 1em; padding-top: 1em;">
+        
+        </div>
+        </div>
+        </nav>
+<br><br>
+        <table style="font-size: 11px; 
+        color: #666; 
+        line-height: 17px; 
+        background:white;
+        border-top: 32px solid #fff2d4; 
+        border-left: 8px solid #fff2d4; 
+        border-right: 8px solid #fff2d4; 
+        border-bottom: 32px solid #fff2d4; 
+        background:url(http://i.imgur.com/tDtge.png); 
+        border-radius:10px;" width="1000" border="0" align="center" cellspacing="5">
+        <tbody><tr>
+            <td valign="top" style="line-height:16px; width:120px; padding-right:0px;">
+
+                <br><br><br>
+                <center><img src="images/div 8.png" width="800" height="140"/></center>
+                <br><br><br>
+                <marquee behavior="alternate" direction="up" width="100%"><marquee direction="right"><img src="images/bff 11.png" width="390" height="320"><img src="images/bff 6.png" width="390" height="320"><img src="images/bff 7.png" width="390" height="320"><img src="images/bff 8.png" width="390" height="320"><img src="images/bff 9.png" width="390" height="320"><img src="images/bff 10.png" width="390" height="320"></marquee></marquee>
+        
+        
+                <div class="bio">
+                    <nav>
+                        <fieldset><legend><img src="https://media.tumblr.com/35ccbbee0df908ebd5d72a1ca32e22e0/tumblr_inline_mmzpjfUaqG1qz4rgp.gif"/>
+                        </legend>This is my best friend from secondary school until now . Its been almost 8 years but we are still close like before .
+                        We always spend time together whenever we have the opportunity . We often video call / talk with each other on the phone . If we have time , 
+                        we will arrange our time to meet each other and spend our days together . They are my closest friends and they are like family to me .
+                        My mother also considers them as her own children . I can always talk to them and i know they will always be there if i needed them . 
+                        I would like to introduce them one by one :D</fieldset>
+                        </nav>
+                </div>
+                <br>
+                <center><img src="images/bff 1.png" width="800" height="450"></center>
+                <div class="bio">
+                    <nav>
+                        <fieldset><legend><img src="https://media.tumblr.com/35ccbbee0df908ebd5d72a1ca32e22e0/tumblr_inline_mmzpjfUaqG1qz4rgp.gif"/>
+                        </legend>Farah is very fun to be with and she is my personal partner for food hunting . We love to try new food / restaurant 
+                        together whenever we have time . We always plan for places to visit & of course try the viral menu . Both of us love sushi very much
+                        and she always encourage me in my study and interest :)</fieldset>
+                        </nav>
+                </div>
+
+                <center><img src="images/bff 2.png" width="800" height="450"></center>
+                <div class="bio">
+                <nav>
+                    <fieldset><legend><img src="https://media.tumblr.com/35ccbbee0df908ebd5d72a1ca32e22e0/tumblr_inline_mmzpjfUaqG1qz4rgp.gif"/>
+                    </legend>I would describe Izzati as sunshine , always bright and lighten up the mood . There was never a dim 
+                    moment if Izzati was there . She is very bubbly and spontaneus which can be funny sometimes . But she is funny
+                    always cracks jokes whenever she get the chances to . Very loving . </fieldset>
+                    </nav>
+                </div>
+            
+                <center><img src="images/bff 3.png" width="800" height="450"></center>
+                <div class="bio">
+                    <nav>
+                        <fieldset><legend><img src="https://media.tumblr.com/35ccbbee0df908ebd5d72a1ca32e22e0/tumblr_inline_mmzpjfUaqG1qz4rgp.gif"/>
+                        </legend>Yasmin might seems cold at first , people who are not close / do not know her will say that she is arrogant 
+                        but , actually she is not . I myself think like that at first , but once i get to know her , she is actually very fun to
+                        be with and cheerfull . Not the type of person who says 'i love you' , but will show she loves you through her action . 
+                        The driver of the group . </fieldset>
+                        </nav>
+                    </div>
+                
+                <center><img src="images/bff 4.png" width="800" height="450"></center>
+                <div class="bio">
+                    <nav>
+                        <fieldset><legend><img src="https://media.tumblr.com/35ccbbee0df908ebd5d72a1ca32e22e0/tumblr_inline_mmzpjfUaqG1qz4rgp.gif"/>
+                        </legend>I said earlier that izzati is funny , but Atikah is 100 times funnier that her . The master of funny jokes and the type
+                        of person who always make people laugh . No matter through her action , spontaneous jokes , or anything , it just funny . One and only
+                        Atikah . A very good listener and always share whatever she has in mind . Give her any topic , surely she can turns it into a
+                        conversation . A good cook . </fieldset>
+                        </nav>
+                    </div>
+                
+                <center><img src="images/bff 5.png" width="800" height="450"></center>
+                <div class="bio">
+                    <nav>
+                        <fieldset><legend><img src="https://media.tumblr.com/35ccbbee0df908ebd5d72a1ca32e22e0/tumblr_inline_mmzpjfUaqG1qz4rgp.gif"/>
+                        </legend>Zahidah is one of the person whom i rarely meet but i will never feel awkward around her . We do not chat with each
+                        other that often but we do talk on the phone when we have time . Also one of my good listener and i feel safe to share anything 
+                        with her . We are really close with each other and her parent often ask me to come and have sleepover at her house . Very kind and
+                        always think about others . </fieldset>
+                        </nav>
+                    </div>
+                <br><br>
+                
+                <center><img src="images/div 9.png" width="800" height="140"/></center>
+                <br><br><br><br>
+                <center><img src="images/bff 12.png" width="800" height="450"></center>
+                <div class="bio">
+                    <nav>
+                        <fieldset><legend><img src="https://media.tumblr.com/35ccbbee0df908ebd5d72a1ca32e22e0/tumblr_inline_mmzpjfUaqG1qz4rgp.gif"/>
+                        </legend>Athirah is my classmate and we are very close with each other since semester 1 , and then we need to
+                        return to our home due to Covid19 , so we are having Online Distance Learning throughout semester 2 until 5 . Athirah and I decided
+                        to come back and stay at the campus on our last semester and we always help each other in terms of assignment . She always explain to me
+                        and help me if i did not understand . Same goes to me . She is very kind and never stingy with me . We always talk and share stories because
+                        we are roommate , only two of us in the room . Sometimes my other friends also join us in the room . We still contacted each other 
+                        and we always video call with each other almost every night , and we do assignment together eventough we are in differet campus right now .</fieldset>
+                        </nav>
+                    </div>
+                <br><br>
+                <center><img src="images/bff 13.png" width="800" height="450"></center>
+                <div class="bio">
+                    <nav>
+                        <fieldset><legend><img src="https://media.tumblr.com/35ccbbee0df908ebd5d72a1ca32e22e0/tumblr_inline_mmzpjfUaqG1qz4rgp.gif"/>
+                        </legend>This is my classmate for degree . We are only 9 person in total , very small amount but everyone is very kind and nice . 
+                        I am still getting to know them but right now everything went well and everyone is very helpful . There is only 1 boy in our class and the
+                        other 8 is girls . Hope to get to know them more and get closer :)</fieldset>
+                        </nav>
+                    </div>
+                <br><br>
+
+                
+</body>
+<center>© Alia Sabrina - 2022</center>
+</html>

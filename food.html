@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <style>body {background-image: url('http://i.imgur.com/tDtge.png');background-attachment: fixed;background-repeat: repeat;}</style>
+
+    
+    
+    <head>
+
+        <link href="https://fonts.googleapis.com/css2?family=Short+Stack&display=swap" rel="stylesheet">
+        <link rel="icon" href="http://3.bp.blogspot.com/-j9Z8DJvlAGo/TxoUuMOyB3I/AAAAAAAACbA/8ebHEAe0ZKE/s1600/foods+%252C+fruits+and+flowers+cute+icon+by+miraahussin.blogspot+%25281%2529.png" />
+        <title> Aℓia Sab </title>
+        <link rel="stylesheet" href="index.css">
+    
+        <div style=" background-image: url('https://3.bp.blogspot.com/-8rUwdqZv4zI/UFSOLGXW_SI/AAAAAAAAFyU/47ar4IsfRHA/s1600/divider7.gif'); top: 0px;  width: 100%; left:0px; height: 44px; z-index: 100; position: fixed "></div>
+    
+    <br>
+
+
+
+
+</head>
+
+<script>
+
+    //Here you can add your own picture for snow. Just change the url
+    var snowsrc="http://1.bp.blogspot.com/-ZhjqZu_ozj8/TjzOYWxIyWI/AAAAAAAABhY/cBGblpOBl9k/s1600/whiteshowNF.png"
+    //how many snowflakes there will be (currently 12)
+    var no =200;
+    //How fast will the snow disappear (0 is never)
+    var hidesnowtime = 0;
+    //The height the snow will reach before it disappears ("windowheight" or "pageheight")
+    var snowdistance = "windowheight";
+    ///////////////////////////////End of Settings///////////////////////////////////
+    var ie4up = (document.all) ? 1 : 0;
+    var ns6up = (document.getElementById&&!document.all) ? 1 : 0;
+
+    function iecompattest()
+    {
+    return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+    }
+
+    var dx, xp, yp;
+    var am, stx, sty;
+    var i, doc_width = 800, doc_height = 600;
+
+    if (ns6up)
+    {
+    doc_width = self.innerWidth;
+    doc_height = self.innerHeight;
+    }
+    else
+    if (ie4up)
+    {
+    doc_width = document.body.clientWidth;
+    doc_height = document.body.clientHeight;
+    }
+
+    dx = new Array();
+    xp = new Array();
+    yp = new Array();
+    am = new Array();
+    stx = new Array();
+    sty = new Array();
+
+    for (i = 0; i < no; ++ i)
+    {
+    dx[i] = 0;
+    xp[i] = Math.random()*(doc_width-50);
+    yp[i] = Math.random()*doc_height;
+    am[i] = Math.random()*20;
+    stx[i] = 0.02 + Math.random()/10;
+    sty[i] = 0.7 + Math.random();
+    if (ie4up||ns6up)
+    {
+    if (i == 0)
+    {
+    document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><a href=\"http://rftactical.darkbb.com/index.htm\"><img src='"+snowsrc+"' border=\"0\"><\/a><\/div>");
+    }
+    else
+    {
+    document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=\"0\"><\/div>");
+    }
+    }
+    }
+
+    function snowIE_NS6()
+    {
+    doc_width = ns6up?window.innerWidth-10 : iecompattest().clientWidth-10;
+    doc_height=(window.innerHeight && snowdistance=="windowheight")? window.innerHeight : (ie4up && snowdistance=="windowheight")? iecompattest().clientHeight : (ie4up && !window.opera && snowdistance=="pageheight")? iecompattest().scrollHeight : iecompattest().offsetHeight;
+    for (i = 0; i < no; ++ i)
+    {
+    yp[i] += sty[i];
+    if (yp[i] > doc_height-50)
+    {
+    xp[i] = Math.random()*(doc_width-am[i]-30);
+    yp[i] = 0;
+    stx[i] = 0.02 + Math.random()/10;
+    sty[i] = 0.7 + Math.random();
+    }
+    dx[i] += stx[i];
+    document.getElementById("dot"+i).style.top=yp[i]+"px";
+    document.getElementById("dot"+i).style.left=xp[i] + am[i]*Math.sin(dx[i])+"px";
+    }
+    snowtimer=setTimeout("snowIE_NS6()", 10);
+    }
+
+    function hidesnow()
+    {
+    if (window.snowtimer) clearTimeout(snowtimer)
+    for (i=0; i<no; i++) document.getElementById("dot"+i).style.visibility="hidden"
+    }
+
+
+    if (ie4up||ns6up)
+    {
+    snowIE_NS6();
+    if (hidesnowtime>0)
+    setTimeout("hidesnow()", hidesnowtime*1000)
+    }
+    </script>  
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script><script type="text/javascript" >/***********************************************
+    * Scroll To Top Control script- &#169; Dynamic Drive DHTML code library(www.dynamicdrive.com)* Modified byLyssaFaizureen***********************************************/var scrolltotop={
+    setting: {startline:100, scrollto: 0, scrollduration:1000, fadeduration:[500, 100]},
+    controlHTML: '<img src="http://i.imgur.com/LuJhP.gif"/>',
+    controlattrs: {offsetx:5, offsety:5},
+    anchorkeyword: '#top',
+    state: {isvisible:false, shouldvisible:false},
+    scrollup:function(){
+    if (!this.cssfixedsupport)
+    this.$control.css({opacity:0})
+    var dest=isNaN(this.setting.scrollto)? this.setting.scrollto : parseInt(this.setting.scrollto)
+    if (typeof dest=="string" && jQuery('#'+dest).length==1)
+    dest=jQuery('#'+dest).offset().top
+    else
+    dest=0
+    this.$body.animate({scrollTop: dest}, this.setting.scrollduration);
+    },
+    keepfixed:function(){
+    var $window=jQuery(window)
+    var controlx=$window.scrollLeft() + $window.width() - this.$control.width() - this.controlattrs.offsetx
+    var controly=$window.scrollTop() + $window.height() - this.$control.height() - this.controlattrs.offsety
+    this.$control.css({left:controlx+'px', top:controly+'px'})
+    },
+    togglecontrol:function(){
+    var scrolltop=jQuery(window).scrollTop()
+    if (!this.cssfixedsupport)
+    this.keepfixed()
+    this.state.shouldvisible=(scrolltop>=this.setting.startline)? true : false
+    if (this.state.shouldvisible && !this.state.isvisible){
+    this.$control.stop().animate({opacity:1}, this.setting.fadeduration[0])
+    this.state.isvisible=true
+    }
+    else if (this.state.shouldvisible==false && this.state.isvisible){
+    this.$control.stop().animate({opacity:0}, this.setting.fadeduration[1])
+    this.state.isvisible=false
+    }
+    },
+    init:function(){
+    jQuery(document).ready(function($){
+    var mainobj=scrolltotop
+    var iebrws=document.all
+    mainobj.cssfixedsupport=!iebrws || iebrws && document.compatMode=="CSS1Compat" && window.XMLHttpRequest
+    mainobj.$body=(window.opera)? (document.compatMode=="CSS1Compat"? $('html') : $('body')) : $('html,body')
+    mainobj.$control=$('<div id="topcontrol">'+mainobj.controlHTML+'</div>')
+    .css({position:mainobj.cssfixedsupport? 'fixed' : 'absolute', bottom:mainobj.controlattrs.offsety, right:mainobj.controlattrs.offsetx, opacity:0, cursor:'pointer'})
+    .attr({title:'Scroll Back to Top'})
+    .click(function(){mainobj.scrollup(); return false})
+    .appendTo('body')
+    if (document.all && !window.XMLHttpRequest && mainobj.$control.text()!='')
+    mainobj.$control.css({width:mainobj.$control.width()})
+    mainobj.togglecontrol()
+    $('a[href="' + mainobj.anchorkeyword +'"]').click(function(){
+    mainobj.scrollup()
+    return false
+    })
+    $(window).bind('scroll resize', function(e){
+    mainobj.togglecontrol()
+    })
+    })
+    }
+    }
+    scrolltotop.init()
+    </script>
+
+<body>
+    
+    <center><img src="images/header food.png" width="800" height="450"></center>
+    <div class="hero">
+        <nav>
+            <div style="border-top: 2px solid #fff2d4; margin-top: 1em; padding-top: 1em;">
+        
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about me.html">ABOUT ME</a></li>
+                <li><a href="education.html">EDUCATION</a></li>
+                <li><a href="personal interest.html">MY INTEREST</a></li>
+                <li><a href="family.html">FAMILY</a></li>
+                <li><a href="friend.html">FRIEND</a></li>
+                <li><a href="food.html">FOOD</a></li>
+                <li><a href="facts.html">FACTS</a></li>  
+            </ul>
+    
+            <div style="border-bottom: 2px solid #fff2d4; margin-top: 1em; padding-top: 1em;">
+        
+        </div>
+        </div>
+        </nav>
+<br><br>
+        <table style="font-size: 12px; 
+        color: #666; 
+        line-height: 17px; 
+        background:white;
+        border-top: 32px solid #fff2d4; 
+        border-left: 8px solid #fff2d4; 
+        border-right: 8px solid #fff2d4; 
+        border-bottom: 32px solid #fff2d4; 
+        background:url(http://i.imgur.com/tDtge.png); 
+        border-radius:10px;" width="1000" border="0" align="center" cellspacing="5">
+        <tbody><tr>
+            <td valign="top" style="line-height:16px; width:120px; padding-right:0px;">
+
+        <br><br><br>
+
+        <marquee behavior="alternate" direction="up" width="100%"><marquee direction="right"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"></marquee></marquee>
+        <br><br><br><br><br>
+        <br>
+                <center><img src="images/food 1.png" width="800" height="450"></center>
+                <div class="bio">
+                    <nav>
+                        <fieldset><legend><img src="https://cur.glitter-graphics.net/pub/3392/3392099y4quvc4vvn.gif"/>
+                        </legend>I like to eat, who doesn't like it? . But for me i love to try new food and go to new restaurant 
+                        and places. Sometimes I will go to a viral store with friends or family to try it out. I’m a bit picky 
+                        because not all the food I eat, so I’ll only eat what I feel like trying and yummy. There are some types 
+                        of food that I don’t eat, but if I tell you it will probably be long, but one of the foods I don’t eat is 
+                        Laksa and sea bass.</fieldset>
+                        </nav>
+                </div>
+
+                <br><br>
+                <marquee behavior="alternate" direction="up" width="100%"><marquee direction="right" behavior="alternate"><img src="images/food 2.png" width="800" height="450"></marquee></marquee>
+                
+                <br><br>
+                <marquee behavior="alternate" direction="up" width="100%"><marquee direction="left" behavior="alternate"><img src="images/food 3.png" width="800" height="450"></marquee></marquee>
+                
+              
+        
+                <div class="bio">
+                    <nav>
+                        <br>
+                        <center><blockquote class="tr_bq">
+                       " A Good food is the foundation of genuine happiness for us "  Auguste Escoffier  
+                        </blockquote></center>
+                        </nav>
+                </div>
+
+                <marquee behavior="alternate" direction="up" width="100%"><marquee direction="right"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"><img src="images/div 10.png" width="800" height="110"></marquee></marquee>
+
+</body>
+           
+<center>© Alia Sabrina - 2022</center>
+            
+</html>

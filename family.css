@@ -1,0 +1,110 @@
+
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/food/foo-7/foo619.cur), auto !important;} /* End https://www.cursors-4u.com */
+
+
+
+::-webkit-scrollbar {
+    height:12px;
+    width: 12px;
+    background: #fff9a9;
+    }
+    ::-webkit-scrollbar-thumb {
+    background:#e99f9f;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    }
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 10;
+    font-family: 'Short Stack', cursive;
+}
+
+nav {
+    display: flex;
+    width: 84%;
+    margin: auto;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style:inside;
+    margin: 10px;
+}
+
+nav ul li a {
+    width:900px;
+    background-image:url(https://64.media.tumblr.com/7725256dc7fcd64b0b3bbd9640002cf0/e639205e236d1d47-32/s500x750/db485679a6ee052d61f23e44e4d9297c1a23e323.png);
+    border-bottom:2px solid #000000;
+    border-top:2px solid #000000;
+    text-align:center;
+    text-decoration: solid;
+    color: black;
+    font-weight: bolder;
+    border:1px solid black;
+    padding:10px;
+    font: 18px 'short stack';
+    letter-spacing:1px;
+    
+
+}
+
+nav ul li a:hover {
+    color: #fff2d4;
+}
+
+.detel {
+    margin-left: 8%;
+    margin-top: 15%;
+}
+
+.detel h1 {
+   font-family: 'Short Stack', cursive;
+    font-size: 50px;
+    color: #212121;
+    margin-bottom: 20px;
+}
+
+span {
+    color: rgb(167, 55, 65);
+}
+
+.detel p {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    line-height: px;
+}
+
+
+.bio {
+    text-align: center;
+    margin: 90px;
+    line-height: 40px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+blockquote {
+    background:#FFF9B8;
+    padding:15px;
+    border-top:3px solid #FFC6BC;
+    border-bottom:5px double #FFC6BC;
+    border-right:3px dashed #A7D3D2;
+    border-left:3px dashed #A7D3D2;
+    color:#000000;
+    }
+    
+    blockquote:hover{
+    border-radius:20px;
+    -webkit-box-shadow: 0px 0px 8px #ffd5d5;
+    -moz-box-shadow: 0px 0px 8px #ffd5d5;
+    box-shadow: 0px 0px 8px #ffd5d5;
+    }
+
+    
